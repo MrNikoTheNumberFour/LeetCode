@@ -9,14 +9,14 @@ class Solution {
 
         int delRow[4] = {-1, 0, 1, 0};
         int delCol[4] = {0, 1, 0, -1};
-            // traverse in the neighbour & mark if it's a land
-
+        
+            // traverse in the neighbour 
             for (int i = 0; i < 4; i++)
             {
                 int nCol = sc + delCol[i];
                 int nRow = sr + delRow[i];
 
-                if (nRow >= 0 && nRow < n && nCol >= 0 && nCol < m && image[nRow][nCol]==initialColor && visited[nRow][nCol]!= newColor)       // write condition for valid row & column, also see if it's land & not visited [MOST IMPORTANT CONDITIONS]
+                if (nRow >= 0 && nRow < n && nCol >= 0 && nCol < m && image[nRow][nCol]==initialColor && visited[nRow][nCol]!= newColor)       // write condition for valid row & column, also see if it's previously colored(meaning visited) & if contains the initial color [MOST IMPORTANT CONDITIONS]
                 {
                     dfs(nRow,nCol,visited,image,newColor,initialColor);
                 }
